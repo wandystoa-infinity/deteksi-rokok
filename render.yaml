@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: rokok-app
+    runtime: python
+    buildCommand: ""
+    startCommand: gunicorn app:app
+    envVars:
+      - key: DATABASE_URL
+        value: postgresql://postgres:Cogitoergosum!42@rokok-db.onrender.com:5432/rokok_db

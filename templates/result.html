@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Hasil Deteksi Rokok</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 600px;
+            margin: auto;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        img {
+            width: 400px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Hasil Deteksi Batang Rokok</h2>
+        <p><strong>Jumlah batang rokok terdeteksi:</strong> {{ jumlah }}</p>
+        <p><strong>Nama file:</strong> {{ filename }}</p>
+        <p><strong>Waktu deteksi:</strong> {{ tanggal }}</p>
+
+        <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Gambar hasil deteksi">
+
+        <br><a href="/">🔁 Upload Gambar Lain</a>
+    </div>
+</body>
+</html>

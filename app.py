@@ -6,6 +6,9 @@ import numpy as np
 from werkzeug.utils import secure_filename
 from datetime import datetime
 import pytz
+from dotenv import load_dotenv
+
+load_dotenv()  # Memuat variabel dari file .env
 
 # --- Inisialisasi Flask ---
 app = Flask(__name__)
@@ -16,7 +19,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # --- Konfigurasi PostgreSQL ---
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:110288@localhost:5432/rokok_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # --- Inisialisasi SQLAlchemy ---
